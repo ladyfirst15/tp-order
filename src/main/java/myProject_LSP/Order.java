@@ -48,6 +48,7 @@ public class Order {
     public void onPreRemove(){
         OrderCancelled orderCancelled = new OrderCancelled();
         BeanUtils.copyProperties(this, orderCancelled);
+        orderCancelled.setStatus("ORDER_CANCELED");
         orderCancelled.publishAfterCommit();
 
         //Following code causes dependency to external APIs
